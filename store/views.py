@@ -30,3 +30,8 @@ def store(request):
 def user_login(request):
     context = {}
     return render(request, "login_form.html", context)
+
+
+def new_arrivals(request):
+    context = {}
+    return render(request, "login_form.html", context)
