@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block content %}
+<header class="header" id="header">
+    <nav class="navbar ">
+        <a href="#" class="nav-logo"><img src="../static/images/logo.png" alt="" class="logo"></a>
+        <div class="nav-menu" id="nav-menu" >
+            <ul class="nav-list" id="nav-list">
+                <li class="nav-item">
+                    <a href="{% url "home" %}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "about" %}" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "store" %}" class="nav-link">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "contact" %}" class="nav-link">Contact </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "cart" %}" class="nav-link"><i class="uil uil-shopping-bag " id="cart-icon"></i> </a>
+                </li>
 
-</body>
-</html>
+                <li class="nav-item">
+                    <a href="{% url "user-login" %}" class="nav-link"><i class="uil uil-sign-in-alt" id="user-login"></i> </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="uil uil-sign-out-alt" id="user-logout"></i></a>
+                </li>
+                <a id="nav-close"><i class="uil uil-multiply" ></i></a>
+            </ul>
+
+
+
+        </div>
+                <div class="nav-btn">
+                    <div class="nav-toggle" id="nav-toggle">
+                        <i class="uil uil-apps"></i>
+                    </div>
+                </div>
+    </nav>
+</header>
+{% endblock content %}

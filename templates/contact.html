@@ -1,18 +1,14 @@
+{% extends "main.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Contact Page</title>
 
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
 </head>
 <body>
-
+{% block content %}
 <section class="page-header-3 section">
     <div class="page-header-container container">
 
@@ -91,8 +87,7 @@
 </section>
 
 
-<script src="../static/js/script.js"></script>
-
+{% endblock content %}
 
 </body>
 </html>

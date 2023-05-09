@@ -21,6 +21,12 @@ def contact(request):
     context = {}
     return render(request, "contact.html", context)
 
+
 def store(request):
     context = {}
     return render(request, "store.html", context)
+
+
+def user_login(request):
+    context = {}
+    return render(request, "login_form.html", context)
