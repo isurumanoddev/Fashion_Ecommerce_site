@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% extends "main.html" %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
@@ -11,42 +12,8 @@
 
 </head>
 <body>
-<header class="header" id="header">
-    <nav class="navbar ">
-        <a href="#" class="nav-logo"><img src="img/logo.png" alt="" class="logo"></a>
-        <div class="nav-menu" id="nav-menu" >
-            <ul class="nav-list" id="nav-list">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contact </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="uil uil-shopping-bag " id="cart-icon"></i> </a>
-                </li>
-                <a id="nav-close"><i class="uil uil-multiply" ></i></a>
-            </ul>
+{% block content %}
 
-            
-
-        </div>
-                <div class="nav-btn">
-                    <div class="nav-toggle" id="nav-toggle">
-                        <i class="uil uil-apps"></i>
-                    </div>
-                </div>
-    </nav>
-</header>
 <section class="home">
     <div class="home-data">
         <p class="description-title">Trade-in-offer</p>
@@ -58,44 +25,13 @@
     </div>
 </section>
 
-<section class="featured section">
-    <div class="featured-container container grid">
-        <div class="featured-item">
-            <img src="img/features/f1.png" alt="" class="fe-img">
-            <h6 class="fe-title">Free shipping</h6>
-        </div>
-        <div class="featured-item">
-            <img src="img/features/f2.png" alt="" class="fe-img">
-            <h6 class="fe-title">Online Order</h6>
-        </div>
-        <div class="featured-item">
-            <img src="img/features/f3.png" alt="" class="fe-img">
-            <h6 class="fe-title">Save Money</h6>
-        </div>
-        <div class="featured-item">
-            <img src="img/features/f4.png" alt="" class="fe-img">
-            <h6 class="fe-title">Promotions</h6>
-
-
-        </div>
-        <div class="featured-item">
-            <img src="img/features/f5.png" alt="" class="fe-img">
-            <h6 class="fe-title">Happy Sell</h6>
-        </div>
-
-        <div class="featured-item">
-            <img src="img/features/f6.png" alt="" class="fe-img">
-            <h6 class="fe-title">24/7 Support</h6>
-        </div>
-    </div>
-</section>
 <section class="featured-products section">
     <h1 class="section-title">Featured Products</h1>
     <span class="section-subtitle">Summer Collection New Modern Design</span>
 
     <div class="products-container container grid">
         <div class="product-item">
-            <img src="img/products/f1.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f1.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -118,7 +54,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f4.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f4.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -140,7 +76,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f3.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f3.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -162,7 +98,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f2.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f2.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -184,7 +120,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f5.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f5.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -206,7 +142,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f6.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f6.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -228,7 +164,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f7.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f7.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -250,7 +186,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/f8.jpg" alt="" class="product-image">
+            <img src="../static/images/products/f8.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -286,7 +222,7 @@
 
     <div class="products-container container grid">
         <div class="product-item">
-            <img src="img/products/n1.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n1.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -309,7 +245,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n1.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n1.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -331,7 +267,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n3.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n3.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -353,7 +289,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n2.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n2.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -375,7 +311,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n5.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n5.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -397,7 +333,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n6.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n6.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -419,7 +355,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n7.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n7.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -441,7 +377,7 @@
             </div>
         </div>
         <div class="product-item">
-            <img src="img/products/n8.jpg" alt="" class="product-image">
+            <img src="../static/images/products/n8.jpg" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">adidas</h4>
                 <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
@@ -530,7 +466,7 @@
 <footer class="footer">
     <div class="footer-container container">
         <div class="footer-left">
-            <img src="img/logo.png" alt="" class="footer-logo">
+            <img src="../static/images/logo.png" alt="" class="footer-logo">
             <div class="contact">
                 <h4 class="address">Address : Wellington Road ,London</h4>
                 <h4 class="phone">Tele : +94-763221176</h4>
@@ -583,7 +519,9 @@
     </div>
     <div class="footer-copy">@ Isuru Manod .All right Reserved</div>
 </footer>
-<script src="script.js"></script>
+
+{% endblock content %}
+
 
 </body>
 </html>
