@@ -15,14 +15,15 @@
     <div class="form">
         <img src="../static/images/authentication.svg" alt="" class="form-image">
 
-        <form action="" class="form-content">
+        <form action="" class="form-content" method="POST">
+            {% csrf_token %}
             <h1 class="form-title">Welcome</h1>
 
             <div class="form-div form-div-1">
                 <div class="form-icon"><i class="uil uil-user-circle form-icon"></i></div>
                 <div class="form-input-div">
                     <label class="form-label">Username</label>
-                    <input type="text" class="form-input"  >
+                    <input type="text" class="form-input"  name="username" >
                 </div>
             </div>
 
@@ -31,7 +32,7 @@
                 <div class="form-icon"><i class="uil uil-lock form-icon"></i></div>
                 <div class="form-input-div">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-input" >
+                    <input type="password" class="form-input" name="password">
                 </div>
             </div>
             <a href="#" class="forgot-password">Forgot Password ? </a>

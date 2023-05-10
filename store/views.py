@@ -1,5 +1,29 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 from store.models import *
+
+
+def user_login(request):
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        try:
+            user = User.objects.get(username=username)
+
+        except:
+            print("user not exist")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+
+        print(username, password)
+    context = {}
+    return render(request, "login_form.html", context)
 
 
 def home(request):
@@ -25,13 +49,8 @@ def contact(request):
 def store(request):
     products = Product.objects.all()
 
-    context = {"products":products}
+    context = {"products": products}
     return render(request, "store.html", context)
-
-
-def user_login(request):
-    context = {}
-    return render(request, "login_form.html", context)
 
 
 def new_arrivals(request):
