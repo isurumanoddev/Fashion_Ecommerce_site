@@ -12,11 +12,12 @@
     <span class="section-subtitle">Summer Collection New Modern Design</span>
 
     <div class="products-container container grid">
+{% for product in products %}
         <div class="product-item">
-            <img src="../static/images/products/f1.jpg" alt="" class="product-image">
+            <img src="{{ product.imageURL }}" alt="" class="product-image">
             <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
+                <h4 class="product-brand">{{ product.brand }}</h4>
+                <h3 class="product-name">{{ product.name }}</h3>
                 <div class="price-cart-box">
                     <div>
                         <div class="rating-container">
@@ -24,7 +25,7 @@
                                 class="uil uil-star"></i><i
                                 class="uil uil-star"></i>
                         </div>
-                        <h5 class="product-price">$50</h5>
+                        <h5 class="product-price">${{ product.price }}</h5>
                     </div>
                     <button class="cart-button">
                         <i class="uil uil-shopping-cart btn-cart-icon"></i>
@@ -35,158 +36,9 @@
 
             </div>
         </div>
-        <div class="product-item">
-            <img src="../static/images/products/f4.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f3.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f2.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f5.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f6.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f7.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$50</h5>
-                    </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i></button>
-
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../static/images/products/f8.jpg" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">adidas</h4>
-                <h3 class="product-name">Cartoon Astronaut T-Shirts</h3>
-                <div class="price-cart-box">
-                    <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">$80</h5>
-                    </div>
-                    <button class="cart-button"><i class="uil uil-shopping-cart btn-cart-icon"></i></button>
-
-                </div>
-
-            </div>
-        </div>
+{% endfor %}
     </div>
+
 </section>
 
 {% endblock content %}

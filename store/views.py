@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-
+from store.models import *
 
 
 def home(request):
@@ -24,7 +23,9 @@ def contact(request):
 
 
 def store(request):
-    context = {}
+    products = Product.objects.all()
+
+    context = {"products":products}
     return render(request, "store.html", context)
 
 
