@@ -14,18 +14,15 @@
     <div class="products-container container grid">
 {% for product in products %}
         <div class="product-item">
+{#            <div class="new-bar" id="new-logo">New</div>#}
             <img src="{{ product.imageURL }}" alt="" class="product-image">
             <div class="product-data">
                 <h4 class="product-brand">{{ product.brand }}</h4>
                 <h3 class="product-name">{{ product.name }}</h3>
                 <div class="price-cart-box">
                     <div>
-                        <div class="rating-container">
-                            <i class="uil uil-star star-icon"></i><i class="uil uil-star"></i><i
-                                class="uil uil-star"></i><i
-                                class="uil uil-star"></i>
-                        </div>
-                        <h5 class="product-price">${{ product.price }}</h5>
+
+                        <h5 class="product-price">LKR {{ product.price }}</h5>
                     </div>
                     <button class="cart-button">
                         <i class="uil uil-shopping-cart btn-cart-icon"></i>
