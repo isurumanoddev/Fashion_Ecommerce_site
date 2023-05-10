@@ -26,18 +26,33 @@
                     <input type="text" class="form-input"  name="username" >
                 </div>
             </div>
+            <div class="form-div form-div-1">
+                <div class="form-icon"><i class="uil uil-user-circle form-icon"></i></div>
+                <div class="form-input-div">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input"  name="email" >
+                </div>
+            </div>
 
 
             <div class="form-div form-div-2">
                 <div class="form-icon"><i class="uil uil-lock form-icon"></i></div>
                 <div class="form-input-div">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-input" name="password">
+                    <input type="password" class="form-input" name="password1">
                 </div>
             </div>
-            <a href="#" class="forgot-password">Forgot Password ? </a>
-            <input type="submit" class="form-button" value="Login">
-            <p class="form-option">Not registered yet ? <a href="{% url "user-register" %}" class="option-link">Register Here</a>  </p>
+
+               <div class="form-div form-div-2">
+                <div class="form-icon"><i class="uil uil-lock form-icon"></i></div>
+                <div class="form-input-div">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" name="password2">
+                </div>
+            </div>
+
+            <input type="submit" class="form-button" value="Register">
+            <p class="form-option">Already registered ? <a href="{% url "user-login" %}" class="option-link">Login Here</a>  </p>
         </form>
 
     </div>

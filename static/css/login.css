@@ -92,7 +92,7 @@ img{
      font-size: 1.5rem;
     color: var(--text-color);
 }
-.form-div-1 {
+.form-div-1,.form-div-2 {
     margin-bottom: 3rem;
 }
 .form-label {

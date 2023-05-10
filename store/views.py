@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from store.models import *
+from .forms import CreateUserForm
 
 
 def user_login(request):
@@ -20,17 +22,42 @@ def user_login(request):
         if user is not None:
             login(request, user)
             return redirect("home")
+        else:
+            print("Login fail")
 
-        print(username, password)
+
     context = {}
     return render(request, "login_form.html", context)
+
+
+def user_register(request):
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            Customer.objects.create(
+                user=user,
+                name=request.POST.get("username"),
+                email=request.POST.get("email")
+            )
+
+            login(request,user)
+            return redirect("home")
+    return render(request, "register_form.html")
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("home")
 
 
 def home(request):
     context = {}
     return render(request, "index.html", context)
 
-
+@login_required(login_url="user-login")
 def cart(request):
     context = {}
     return render(request, "cart.html", context)
