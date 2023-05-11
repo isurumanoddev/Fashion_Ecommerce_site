@@ -4,28 +4,28 @@
 
 
 :root {
- --first-color: hsl(228, 66%, 53%);
-  --first-color-alt: hsl(228, 66%, 47%);
-  --first-color-light: hsl(228, 62%, 59%);
-  --first-color-lighten: hsl(228, 100%, 97%);
-  --second-color: hsl(25, 83%, 53%);
-  --title-color: hsl(157, 66%, 41%);
-  --text-color: hsl(228, 15%, 50%);
-  --text-color-light: hsl(228, 12%, 75%);
-  --border-color: hsl(228, 99%, 98%);
-  --body-color: #fff;
-  --container-color: #fff;
+    --first-color: hsl(228, 66%, 53%);
+    --first-color-alt: hsl(228, 66%, 47%);
+    --first-color-light: hsl(228, 62%, 59%);
+    --first-color-lighten: hsl(228, 100%, 97%);
+    --second-color: hsl(25, 83%, 53%);
+    --title-color: hsl(157, 66%, 41%);
+    --text-color: hsl(228, 15%, 50%);
+    --text-color-light: hsl(228, 12%, 75%);
+    --border-color: hsl(228, 99%, 98%);
+    --body-color: #fff;
+    --container-color: #fff;
 
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Poppins', sans-serif;
-  --biggest-font-size: 2.25rem;
-  --h1-font-size: 1.5rem;
-  --h2-font-size: 1.25rem;
-  --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
 
 
 }
@@ -163,7 +163,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index:10;
+    z-index: 10;
     background-color: var(--body-color);
     box-shadow: 4px 2px 3px rgba(0, 0, 0, 0.2);
 
@@ -194,7 +194,7 @@ ul {
     color: var(--first-color-alt);
 }
 
-#cart-icon,#user-login,#user-logout {
+#cart-icon, #user-login, #user-logout {
     font-size: 1.6rem;
 }
 
@@ -276,9 +276,11 @@ ul {
     font-size: 0.9rem;
     color: var(--first-color-alt);
 }
+
 .featured-products {
     margin-top: 64px;
 }
+
 #new-logo {
     background-color: #dd6b20;
     position: absolute;
@@ -287,6 +289,7 @@ ul {
     border-bottom-right-radius: 16px;
     color: #ffffff;
 }
+
 .products-container {
 
     grid-gap: 24px;
@@ -301,13 +304,14 @@ ul {
     border-radius: 4px;
     overflow: hidden;
     background: #fafafa;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 
 }
+
 .product-item:hover {
 
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -328,7 +332,7 @@ ul {
 }
 
 .product-image:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .price-cart-box {
@@ -367,7 +371,6 @@ ul {
     color: var(--first-color);
     font-size: 0.9rem;
 }
-
 
 
 .banner-section {
@@ -751,7 +754,7 @@ a.ad-container {
 
 /*==============================================*/
 .cart-section {
-    margin: 0 64px;
+    margin: 0 auto;
 }
 
 .cart-section table {
@@ -835,9 +838,10 @@ a.ad-container {
 }
 
 .coupen-input-container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     margin-top: 16px;
+    grid-gap: 16px;
 }
 
 .code-input {
@@ -847,22 +851,6 @@ a.ad-container {
 
 }
 
-.button-2 {
-    width: max-content;
-    padding: 8px 24px;
-    background: var(--first-color);
-    border: none;
-    color: #ffffff;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.1s;
-}
-
-.button-2:hover {
-    background: var(--first-color-alt);
-}
 
 .cart-total {
     border: 1px solid black;
@@ -1003,6 +991,142 @@ a.ad-container {
 .people-contact-details h4 {
     font-weight: 600;
     font-size: 1.2rem;
+}
+
+/*+++++++++++++++++++++++++++++++++media */
+/*+++++++++++++++++++++++++++++++++media */
+.checkout-section {
+    margin: 64px 32px;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.checkout-title {
+    color: black;
+    font-size: 1rem;
+    padding: 8px 0;
+}
+
+.checkout-subtitle {
+    color: var(--text-color);
+    font-size: 0.8rem;
+}
+
+.checkout-shipping {
+    padding: 32px 16px;
+    margin-bottom: 32px;
+}
+
+.checkout-contact {
+    display: grid;
+    margin-bottom: 32px;
+}
+
+.checkout-shipping-add {
+    display: grid;
+}
+
+.checkout-address-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+}
+
+.checkout-input {
+    width: 100%;
+    margin: 16px 16px;
+    font-size: 0.75rem;
+    padding: 16px 8px;
+    border: 1px solid #dad5d5;
+    border-radius: 8px;
+    font-weight: 600;
+    opacity: 0.8;
+
+}
+
+.shopping-button {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.button-2 {
+
+
+    font-size: 0.8rem;
+    padding: 12px 24px;
+    color: #ffffff;
+    background: #718096;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.1s;
+}
+
+.button-2:hover {
+    background: var(--text-color);
+}
+
+/*.input-1 {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+.checkout-Total {
+    padding: 32px 64px;
+}
+
+.checkout-card {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-gap: 4px;
+    margin-bottom: 12px;
+}
+
+.card-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    column-gap: 4px;
+
+}
+
+.card-product-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #2f2f2f;
+
+}
+
+.card-product-brand {
+    font-size: 0.7rem;
+    color: var(--text-color);
+}
+
+hr {
+    border-color: var(--text-color);
+    opacity: 0.3;
+
+}
+
+.checkout-total-box {
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #8f8d8d;
 }
 
 /*+++++++++++++++++++++++++++++++++media */
@@ -1246,12 +1370,13 @@ a.ad-container {
 
 
     }
+
     .contact-form-container {
-    display: flex;
-    flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
 
-}
+    }
 
 
     @media screen and (max-width: 576px) {

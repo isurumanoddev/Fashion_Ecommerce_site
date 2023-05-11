@@ -25,7 +25,6 @@ def user_login(request):
         else:
             print("Login fail")
 
-
     context = {}
     return render(request, "login_form.html", context)
 
@@ -43,7 +42,7 @@ def user_register(request):
                 email=request.POST.get("email")
             )
 
-            login(request,user)
+            login(request, user)
             return redirect("home")
     return render(request, "register_form.html")
 
@@ -57,12 +56,21 @@ def home(request):
     context = {}
     return render(request, "index.html", context)
 
+
 @login_required(login_url="user-login")
 def cart(request):
-    context = {}
+    customer = request.user.customer
+    order,created = Order.objects.get_or_create(customer=customer,complete=False)
+    cart_items = order.orderitem_set.all()
+    context = {"cart_items":cart_items,"order":order}
     return render(request, "cart.html", context)
 
-
+def checkout(request):
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    cart_items = order.orderitem_set.all()
+    context = {"cart_items": cart_items, "order": order}
+    return render(request, "checkout.html", context)
 def about(request):
     context = {}
     return render(request, "about.html", context)

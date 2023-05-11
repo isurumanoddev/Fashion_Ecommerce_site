@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends "main.html" %}
+
+
+{% block content %}
+
+    <section class="checkout-section">
+        <div class="checkout-container">
+            <div class="checkout-shipping">
+                <div class="checkout-contact">
+                    <h6 class="checkout-title">Contact Information</h6>
+                    <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>
+
+                    <input type="text" class="checkout-input" placeholder="Email Address">
+                </div>
+                <div class="checkout-shipping-add">
+                    <h6 class="checkout-title">Shipping Address</h6>
+                    <span class="checkout-subtitle">Fill the following fileds according to where the order to be delivered.</span>
+
+                    <input type="text" class="checkout-input" placeholder="Address">
+                    <input type="text" class="checkout-input" placeholder="State">
+                    <div class="checkout-address-container">
+                        <input type="text" class="checkout-input input-1" placeholder="city">
+                        <input type="text" class="checkout-input input-1" placeholder="zipcode">
+                    </div>
+                    <input type="text" class="checkout-input" placeholder="phone Number">
+                </div>
+                <div class="shopping-button">
+
+                    <a href="" class="button-2">Continue to shipping</a>
+                </div>
+
+
+            </div>
+            <div class="checkout-Total">
+                {% for item in cart_items %}
+                    <div class="checkout-card">
+                        <img src="{{ item.product.imageURL }}" class="card-image" alt="">
+                        <div class="card-body">
+                            <p class="card-product-name">{{ item.product.name }}</p>
+                            <p class="card-product-brand">{{ item.product.brand }}</p>
+                            <p class="card-product-brand">{{ item.quantity }}</p>
+                            <p class="card-product-brand">{{ item.get_total }}</p>
+
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr/>
+
+                <div class="checkout-total-box">
+                    <p class="checkout-subtotal">Subtotal</p>
+                    <p class="checkout-subtotal">LKR 2000</p>
+                </div>
+                <div class="checkout-total-box">
+                    <p class="checkout-subtotal">Shipping</p>
+                    <p class="checkout-subtotal">LKR 2000</p>
+                </div>
+                <hr/>
+            <div class="checkout-total-box">
+                    <p class="checkout-subtotal">Total</p>
+                    <p class="checkout-subtotal">LKR 2000</p>
+                </div>
+                <hr/>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+<script src="../static/js/script.js"></script>
+
+

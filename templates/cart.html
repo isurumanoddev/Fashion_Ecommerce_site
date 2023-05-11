@@ -1,14 +1,10 @@
 <!DOCTYPE html>
+{% extends "main.html" %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="stylecart.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Cart</title>
 
 </head>
 <body>
@@ -16,7 +12,7 @@
 <section class="page-header-2 section">
     <div class="page-header-container container">
 
-        <h2 class="page-title">#Let's_talk</h2>
+        <h2 class="page-title">#Let's_talk {{ request.user.username }}</h2>
         <h4 class="page-subtitle">LEAVE A MESSAGE , We love to hear from you !</h4>
     </div>
 </section>
@@ -35,30 +31,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="table-row">
-            <td><a href=""><i class="uil uil-times-circle close-icon"></i></a></td>
-            <td><img src="../static/images/products/f2.jpg" alt="" class="cart-image"></td>
-            <td>Men's Fashion T shirt</td>
-            <td>$145.00</td>
-            <td><input type="number" class="input-quantity" value="1"></td>
-            <td>$145.00</td>
-        </tr>
-        <tr class="table-row">
-            <td><a href=""><i class="uil uil-times-circle close-icon"></i></a></td>
-            <td><img src="../static/images/products/f5.jpg" alt="" class="cart-image"></td>
-            <td>Men's Fashion T shirt</td>
-            <td>$185.00</td>
-            <td><input type="number" class="input-quantity" value="1"></td>
-            <td>$185.00</td>
-        </tr>
-        <tr class="table-row">
-            <td><a href=""><i class="uil uil-times-circle close-icon"></i></a></td>
-            <td><img src="../static/images/products/f3.jpg" alt="" class="cart-image"></td>
-            <td>Men's Fashion T shirt</td>
-            <td>$145.00</td>
-            <td><input type="number" class="input-quantity" value="1"></td>
-            <td>$291.00</td>
-        </tr>
+        {% for cart_item in  cart_items %}
+
+
+
+            <tr class="table-row">
+                <td><a href=""><i class="uil uil-times-circle close-icon"></i></a></td>
+                <td><img src="{{ cart_item.product.imageURL }}" alt="" class="cart-image"></td>
+                <td>{{ cart_item.product.name }}</td>
+                <td>{{ cart_item.product.price|floatformat:2 }}</td>
+
+                <td><input type="number" class="input-quantity" value="{{ cart_item.quantity }}"></td>
+                <td>LKR {{ cart_item.get_total }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 
@@ -75,13 +61,13 @@
             </div>
 
         </div>
-<!--        <div class="cart-total"></div>-->
+        <!--        <div class="cart-total"></div>-->
         <div class="cart-total">
             <h3 class="coupen-header">Cart Totals</h3>
             <table class="cart-total-table">
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 335</td>
+                    <td>LKR {{ order.get_cart_total  }}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -89,16 +75,20 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$ 335</strong></td>
+                    <td><strong>LKR {{ order.get_cart_total  }}</strong></td>
                 </tr>
             </table>
-            <button class="button-2 ">Proceed to checkout</button>
+
+             <div class="shopping-button">
+
+                    <a href="{% url "checkout" %}" class="button-2 ">Proceed to checkout</a>
+                </div>
 
         </div>
     </div>
 </section>
 
-
+{% endblock content  %}
 <script src="../static/js/script.js"></script>
 
 </body>
