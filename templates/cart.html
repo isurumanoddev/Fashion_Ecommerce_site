@@ -53,35 +53,27 @@
 <section class="cart-description section">
     <div class="cart-description-container container">
         <div class="coupon">
-            <h3 class="coupen-header">Apply for coupens</h3>
+            <h3 class="coupen-title">Apply for coupens</h3>
             <div class="coupen-input-container">
 
                 <input type="text" class="code-input" placeholder="Enter your coupen">
-                <button class="button-2">Apply</button>
+                <button class="button-3">Apply</button>
             </div>
 
         </div>
         <!--        <div class="cart-total"></div>-->
         <div class="cart-total">
-            <h3 class="coupen-header">Cart Totals</h3>
-            <table class="cart-total-table">
-                <tr>
-                    <td>Cart Subtotal</td>
-                    <td>LKR {{ order.get_cart_total  }}</td>
-                </tr>
-                <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
-                </tr>
-                <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>LKR {{ order.get_cart_total  }}</strong></td>
-                </tr>
-            </table>
+            <div class="cart-total-container">
+                <h3 class="coupen-title">Cart Totals ( {{ order.get_cart_item_total }} items)</h3>
+             <p class="checkout-subtotal">LKR {{ order.get_cart_total }}</p>
+            </div>
 
-             <div class="shopping-button">
 
-                    <a href="{% url "checkout" %}" class="button-2 ">Proceed to checkout</a>
+
+             <div class="checkout-button">
+
+                    <a href="{% url "checkout" %}" class="button-3 ">Proceed to checkout</a>
+                    <a href="" class="button-4 ">Detailed Cart</a>
                 </div>
 
         </div>

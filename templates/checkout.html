@@ -7,6 +7,7 @@
     <section class="checkout-section">
         <div class="checkout-container">
             <div class="checkout-shipping">
+                <a href="{% url "cart" %}" class="return">Return to cart</a>
                 <div class="checkout-contact">
                     <h6 class="checkout-title">Contact Information</h6>
                     <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>
@@ -27,7 +28,7 @@
                 </div>
                 <div class="shopping-button">
 
-                    <a href="" class="button-2">Continue to shipping</a>
+                    <a href="" class="button-3">Continue to shipping</a>
                 </div>
 
 
@@ -49,16 +50,16 @@
 
                 <div class="checkout-total-box">
                     <p class="checkout-subtotal">Subtotal</p>
-                    <p class="checkout-subtotal">LKR 2000</p>
+                    <p class="checkout-subtotal">LKR {{ order.get_cart_total }}</p>
                 </div>
                 <div class="checkout-total-box">
                     <p class="checkout-subtotal">Shipping</p>
-                    <p class="checkout-subtotal">LKR 2000</p>
+                    <p class="checkout-subtotal">LKR 0.00</p>
                 </div>
                 <hr/>
             <div class="checkout-total-box">
                     <p class="checkout-subtotal">Total</p>
-                    <p class="checkout-subtotal">LKR 2000</p>
+                    <p class="checkout-subtotal">LKR {{ order.get_cart_total }}</p>
                 </div>
                 <hr/>
 

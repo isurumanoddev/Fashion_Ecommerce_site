@@ -116,37 +116,66 @@ ul {
     background: var(--first-color-alt);
 }
 
-.button-white {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 12px 16px;
-    font-weight: 600;
-    background: #fff;
-    color: black;
-    transition: 0.4s;
 
-}
-
-.button-white:hover {
+.button-2 {
 
 
-}
-
-.button-explore {
-    display: inline-block;
-    border: 1px solid white;
-    padding: 8px 16px;
-    font-weight: 600;
-    background: transparent;
+    font-size: 0.8rem;
+    padding: 12px 24px;
     color: #ffffff;
-    transition: 0.4s;
-
-}
-
-.button-explore:hover {
-    background: var(--first-color);
+    background: #718096;
+    border-radius: 6px;
     border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.1s;
+      text-align: center;
 }
+
+.button-2:hover {
+    background: var(--text-color);
+}
+
+.button-3 {
+
+
+    font-size: 0.8rem;
+    padding: 12px 24px;
+    color: #ffffff;
+    background-color: #202b39;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.1s;
+    text-align: center;
+}
+
+.button-3:hover {
+    background-color: #2e3b4f;
+}
+.button-4 {
+
+
+    font-size: 0.8rem;
+    padding: 12px 24px;
+    color: #030338;
+    background-color: #ffffff;
+    border-radius: 6px;
+
+
+    outline: none;
+    transition: 0.1s;
+      text-align: center;
+    border: 1px solid black;
+}
+
+.button-4:hover {
+
+    cursor: pointer;
+}
+
+
 
 .header {
 
@@ -803,15 +832,14 @@ a.ad-container {
 }
 
 .cart-section table thead td {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     padding: 16px 0;
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
-.cart-section table tbody td {
 
-}
 
 .cart-section table tbody tr td {
     padding: 24px 0;
@@ -822,7 +850,34 @@ a.ad-container {
     width: 60px;
     font-size: 1rem;
 }
+.return {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+.return:hover {
+    color: var(--first-color-alt);
+}
+.cart-description {
+    /*background: rebeccapurple;*/
+    margin-top: 32px;
+    padding-top: 2rem;
+   box-shadow:  0px -5px 5px -5px rgba(0, 0, 0, 0.2);
 
+}
+.cart-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 0.75rem;
+}
+.cart-total-container {
+    display: flex;
+    justify-content: space-between;
+}
+.coupen-title {
+    color: #525050;
+    font-size: 1rem;
+}
 /*================================================*/
 .cart-description-container {
     display: grid;
@@ -833,8 +888,15 @@ a.ad-container {
 
 .coupon {
 
-    padding: 24px;
+    /*padding: 24px;*/
     text-align: start;
+}
+
+.checkout-button {
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-gap: 8px;
+    margin-top: 16px;
 }
 
 .coupen-input-container {
@@ -848,15 +910,18 @@ a.ad-container {
     width: 100%;
     padding: 8px;
     margin-right: 12px;
+    border: 1px solid #e0dcdc;
+    border-radius: 4px;
+    font-size: 0.8rem;
 
 }
 
 
 .cart-total {
-    border: 1px solid black;
+
     /*background: red;*/
     /*padding: 48px;*/
-    padding: 24px 48px;
+    /*padding: 24px 48px;*/
     /*height: 400px;*/
     display: flex;
     flex-direction: column;
@@ -1049,34 +1114,12 @@ a.ad-container {
 }
 
 .shopping-button {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
 }
 
 
-.button-2 {
-
-
-    font-size: 0.8rem;
-    padding: 12px 24px;
-    color: #ffffff;
-    background: #718096;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: 0.1s;
-}
-
-.button-2:hover {
-    background: var(--text-color);
-}
-
-/*.input-1 {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
 .checkout-Total {
     padding: 32px 64px;
 }

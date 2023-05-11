@@ -43,9 +43,15 @@ class Order(models.Model):
     @property
     def get_cart_total(self):
         orderItems = self.orderitem_set.all()
-        total = 0
+
         total = sum([item.get_total for item in orderItems])
         return total
+
+    @property
+    def get_cart_item_total(self):
+        orderItems = self.orderitem_set.all()
+        item_total = sum([item.quantity for item in orderItems])
+        return item_total
 
 
 class OrderItem(models.Model):
