@@ -36,7 +36,7 @@
 
 
             <tr class="table-row">
-                <td><a href=""><i class="uil uil-times-circle close-icon"></i></a></td>
+                <td><a href=""><i class="uil uil-times-circle close-icon add-cart-button" data-product="{{ cart_item.product.id }}" data-action="delete"></i></a></td>
                 <td><img src="{{ cart_item.product.imageURL }}" alt="" class="cart-image"></td>
                 <td>{{ cart_item.product.name }}</td>
                 <td>{{ cart_item.product.price|floatformat:2 }}</td>
