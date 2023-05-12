@@ -847,7 +847,28 @@ a.ad-container {
     text-transform: uppercase;
 }
 
+.cart-item-quantity {
 
+ display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-iem-arrow {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+}
+.arrow-item {
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+
+}
+.arrow-item:hover{
+    color: #313803;
+}
 
 .cart-section table tbody tr td {
     padding: 24px 0;

@@ -18,6 +18,7 @@ for (let i = 0; i < addCartBtn.length; i++) {
     })
 
 }
+
 const updateUserOrder = (productId, action) => {
     console.log("user :", user)
     console.log("user logged in");
@@ -38,6 +39,8 @@ const updateUserOrder = (productId, action) => {
 
         .then(data => {
             location.reload()
-            console.log("data : ", data) });
+            console.log("data : ", data)
+        });
 
 }
+

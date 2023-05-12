@@ -41,7 +41,19 @@
                 <td>{{ cart_item.product.name }}</td>
                 <td>{{ cart_item.product.price|floatformat:2 }}</td>
 
-                <td><input type="number" class="input-quantity" value="{{ cart_item.quantity }}"></td>
+                <td>
+                    <div class="cart-item-quantity">
+                        <p>
+                            {{ cart_item.quantity }}
+                        </p>
+                        <div class="cart-iem-arrow">
+                            <i data-product="{{ cart_item.product.id }}" data-action="add" class="uil uil-angle-up arrow-item add-cart-button" ></i>
+                            <i data-product="{{ cart_item.product.id }}" data-action="remove" class="uil uil-angle-down arrow-item add-cart-button"></i>
+
+                        </div>
+                    </div>
+
+                </td>
                 <td>LKR {{ cart_item.get_total }}</td>
             </tr>
         {% endfor %}
