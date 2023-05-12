@@ -122,6 +122,22 @@
 
 
             console.log("paid")
+
+            const url = "/process_order/"
+            fetch(url,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                    "X-CSRFToken": csrftoken,
+                },
+                body:JSON.stringify({"shippingData":shippingData,"contactData":contactData})
+            }).then(response => {
+                return  response.json()
+            }).then(data => {
+                console.log("data : ", data)
+                alert("Transaction Completed");
+                window.location.href ="{% url "store" %}"
+            })
         }
 
         const makePayment = document.getElementById("make-payment");

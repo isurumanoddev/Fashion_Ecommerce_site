@@ -16,5 +16,6 @@ urlpatterns = [
 
 
     path('update_item/', views.update_item, name="update-item"),
+    path('process_order/', views.process_order, name="process-order"),
 
 ]

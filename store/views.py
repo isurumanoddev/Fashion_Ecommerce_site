@@ -105,6 +105,11 @@ def update_item(request):
     return JsonResponse("item was added", safe=False)
 
 
+def process_order(request):
+    data = json.loads(request.body)
+    print("data : ",data)
+    return JsonResponse("payment Complete",safe=False)
+
 def about(request):
     context = {}
     return render(request, "about.html", context)
