@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from store.models import *
 from .forms import CreateUserForm
+from django.http import JsonResponse
+import json
 
 
 def user_login(request):
@@ -57,13 +59,19 @@ def home(request):
     return render(request, "index.html", context)
 
 
-@login_required(login_url="user-login")
+# @login_required(login_url="user-login")
 def cart(request):
-    customer = request.user.customer
-    order,created = Order.objects.get_or_create(customer=customer,complete=False)
-    cart_items = order.orderitem_set.all()
-    context = {"cart_items":cart_items,"order":order}
+    if request.user.is_authenticated:
+
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        cart_items = order.orderitem_set.all()
+    else:
+        cart_items = []
+        order = []
+    context = {"cart_items": cart_items, "order": order}
     return render(request, "cart.html", context)
+
 
 def checkout(request):
     customer = request.user.customer
@@ -71,6 +79,30 @@ def checkout(request):
     cart_items = order.orderitem_set.all()
     context = {"cart_items": cart_items, "order": order}
     return render(request, "checkout.html", context)
+
+
+def update_item(request):
+    data = json.loads(request.body)
+    productId = data["productId"]
+    action = data["action"]
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    orderItem, created = OrderItem.objects.get_or_create(product=product, order=order)
+    if action == "add":
+        orderItem.quantity += 1
+    elif action == "remove":
+        orderItem.quantity -= 1
+
+    orderItem.save()
+
+    if orderItem.quantity < 1:
+        orderItem.delete()
+
+    return JsonResponse("item was added", safe=False)
+
+
 def about(request):
     context = {}
     return render(request, "about.html", context)

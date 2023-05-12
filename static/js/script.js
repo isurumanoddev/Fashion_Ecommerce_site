@@ -18,3 +18,12 @@ if (navClose) {
 
 }
 
+// const addToCartButton = document.getElementsByName(".add-cart-button");
+// addToCartButton.addEventListener('click', function () {
+//     console.log("clicked")
+//     addToCartButton.classList.add('shake');
+//
+//     setTimeout(function () {
+//         addToCartButton.classList.remove('shake');
+//     }, 500);
+// });

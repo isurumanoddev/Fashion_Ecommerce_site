@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends "main.html" %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,36 +9,37 @@
 <body>
 {% block content %}
     <section class="featured-products section">
-    <h1 class="section-title">Featured Products</h1>
-    <span class="section-subtitle">Summer Collection New Modern Design</span>
+        <h1 class="section-title">Featured Products</h1>
+        <span class="section-subtitle">Summer Collection New Modern Design</span>
 
-    <div class="products-container container grid">
-{% for product in products %}
-        <div class="product-item">
-{#            <div class="new-bar" id="new-logo">New</div>#}
-            <img src="{{ product.imageURL }}" alt="" class="product-image">
-            <div class="product-data">
-                <h4 class="product-brand">{{ product.brand }}</h4>
-                <h3 class="product-name">{{ product.name }}</h3>
-                <div class="price-cart-box">
-                    <div>
+        <div class="products-container container grid">
+            {% for product in products %}
+                <div class="product-item">
+                    {#            <div class="new-bar" id="new-logo">New</div>#}
+                    <img src="{{ product.imageURL }}" alt="" class="product-image">
+                    <div class="product-data">
+                        <h4 class="product-brand">{{ product.brand }}</h4>
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <div class="price-cart-box">
+                            <div>
 
-                        <h5 class="product-price">LKR {{ product.price }}</h5>
+                                <h5 class="product-price">LKR {{ product.price }}</h5>
+                            </div>
+                            <button data-product="{{ product.id }}" data-action="add" type="submit" class="add-cart-button">
+                                <i class="uil uil-shopping-cart btn-cart-icon"></i>
+                            </button>
+
+                        </div>
+
+
                     </div>
-                    <button class="cart-button">
-                        <i class="uil uil-shopping-cart btn-cart-icon"></i>
-                    </button>
-
                 </div>
-
-
-            </div>
+            {% endfor %}
         </div>
-{% endfor %}
-    </div>
 
-</section>
+    </section>
 
 {% endblock content %}
+
 </body>
 </html>
