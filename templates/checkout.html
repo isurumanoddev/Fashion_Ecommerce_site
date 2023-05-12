@@ -106,12 +106,20 @@
 
             }
             const shippingData = {
-                "Address":null,
-                "State":null,
+                "address":null,
+                "state":null,
                 "city":null,
-                "zipcode":total,
+                "zipcode":null,
 
             }
+            contactData.name = form.name.value
+            contactData.email = form.email.value
+            contactData.phone = form.phone.value
+            shippingData.address = form.address.value
+            shippingData.state = form.state.value
+            shippingData.city = form.city.value
+            shippingData.zipcode = form.zipcode.value
+
 
             console.log("paid")
         }
