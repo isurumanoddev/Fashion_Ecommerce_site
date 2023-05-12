@@ -34,13 +34,13 @@
                     </div>
 
                     <div class="shopping-button">
-                        <button id="form-submit" type="submit"  class="button-3">Continue to shipping</button>
+                        <button id="form-submit" type="submit" class="button-3">Continue to shipping</button>
                     </div>
                     <div class="checkout-contact hidden" id="payment-info">
                         <h6 class="checkout-title payment-box">Payments Information</h6>
-{#                        <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>#}
-
-                        <button id="make-payment" type="submit"  class="button-3">Make Payment</button>
+                        {#                        <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>#}
+                        <div id="paypal-button-container"></div>
+                        <button id="make-payment" type="submit" class="button-3">Make Payment</button>
 
 
                     </div>
@@ -81,6 +81,68 @@
         </div>
     </section>
 
+     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+        <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+            style: {
+                layout: 'horizontal'
+            },
+
+            // Call your server to set up the transaction
+            createOrder: function(data, actions) {
+                return fetch('/demo/checkout/api/paypal/order/create/', {
+                    method: 'post'
+                }).then(function(res) {
+                    return res.json();
+                }).then(function(orderData) {
+                    return orderData.id;
+                });
+            },
+
+            // Call your server to finalize the transaction
+            onApprove: function(data, actions) {
+                return fetch('/demo/checkout/api/paypal/order/' + data.orderID + '/capture/', {
+                    method: 'post'
+                }).then(function(res) {
+                    return res.json();
+                }).then(function(orderData) {
+                    // Three cases to handle:
+                    //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+                    //   (2) Other non-recoverable errors -> Show a failure message
+                    //   (3) Successful transaction -> Show confirmation or thank you
+
+                    // This example reads a v2/checkout/orders capture response, propagated from the server
+                    // You could use a different API or structure for your 'orderData'
+                    var errorDetail = Array.isArray(orderData.details) && orderData.details[0];
+
+                    if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
+                        return actions.restart(); // Recoverable state, per:
+                        // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                    }
+
+                    if (errorDetail) {
+                        var msg = 'Sorry, your transaction could not be processed.';
+                        if (errorDetail.description) msg += '\n\n' + errorDetail.description;
+                        if (orderData.debug_id) msg += ' (' + orderData.debug_id + ')';
+                        return alert(msg); // Show a failure message (try to avoid alerts in production environments)
+                    }
+
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+
     <script type="text/javascript">
         const form = document.getElementById("shipping-form");
         const inputs = document.querySelectorAll(".checkout-input");
@@ -99,17 +161,17 @@
 
         function submitFormData() {
             const contactData = {
-                "name":null,
-                "email":null,
-                "phone":null,
-                "total":total,
+                "name": null,
+                "email": null,
+                "phone": null,
+                "total": total,
 
             }
             const shippingData = {
-                "address":null,
-                "state":null,
-                "city":null,
-                "zipcode":null,
+                "address": null,
+                "state": null,
+                "city": null,
+                "zipcode": null,
 
             }
             contactData.name = form.name.value
@@ -124,24 +186,24 @@
             console.log("paid")
 
             const url = "/process_order/"
-            fetch(url,{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json",
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                     "X-CSRFToken": csrftoken,
                 },
-                body:JSON.stringify({"shippingData":shippingData,"contactData":contactData})
+                body: JSON.stringify({"shippingData": shippingData, "contactData": contactData})
             }).then(response => {
-                return  response.json()
+                return response.json()
             }).then(data => {
                 console.log("data : ", data)
                 alert("Transaction Completed");
-                window.location.href ="{% url "store" %}"
+                window.location.href = "{% url "store" %}"
             })
         }
 
         const makePayment = document.getElementById("make-payment");
-        makePayment.addEventListener("click", function(e) {
+        makePayment.addEventListener("click", function (e) {
             submitFormData()
 
 
