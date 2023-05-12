@@ -38,7 +38,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return str(self.id)
+        return self.customer.name
 
     @property
     def get_cart_total(self):
@@ -78,4 +78,4 @@ class ShippingAddress(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.address
+        return str(self.customer.name)

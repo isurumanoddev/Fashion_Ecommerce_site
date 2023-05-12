@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from store.models import *
 from .forms import CreateUserForm
 from django.http import JsonResponse
-import json
+import json,datetime
 
 
 def user_login(request):
@@ -107,7 +107,25 @@ def update_item(request):
 
 def process_order(request):
     data = json.loads(request.body)
-    print("data : ",data)
+    transaction_id = datetime.datetime.now().timestamp()
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order = Order.objects.get(customer=customer)
+        order.transaction_id = transaction_id
+        order.complete = True
+        order.save()
+
+        ShippingAddress.objects.create(
+            customer=customer,
+            order = order,
+            address=data["shippingData"]["address"],
+            city=data["shippingData"]["city"],
+            state=data["shippingData"]["state"],
+            zipcode=data["shippingData"]["zipcode"],
+
+        )
+
+    # print("data : ",data)
     return JsonResponse("payment Complete",safe=False)
 
 def about(request):
