@@ -59,7 +59,7 @@ def home(request):
     return render(request, "index.html", context)
 
 
-# @login_required(login_url="user-login")
+@login_required(login_url="user-login")
 def cart(request):
     if request.user.is_authenticated:
 
