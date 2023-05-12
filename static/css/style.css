@@ -215,7 +215,7 @@ ul {
     align-items: center;
     position: fixed;
     z-index: 10;
-    background-color: #202b39;
+      background: #030338;
     box-shadow: 4px 2px 3px rgba(0, 0, 0, 0.2);
 
 
@@ -1138,7 +1138,7 @@ a.ad-container {
 
 .checkout-contact {
     display: grid;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
 .checkout-shipping-add {
@@ -1153,7 +1153,7 @@ a.ad-container {
 
 .checkout-input {
     width: 100%;
-    margin: 16px 16px;
+    margin: 10px 16px;
     font-size: 0.75rem;
     padding: 16px 8px;
     border: 1px solid #dad5d5;
@@ -1207,6 +1207,12 @@ a.ad-container {
     font-size: 0.7rem;
     color: var(--text-color);
 }
+.payment-box {
+   display: flex !important;
+    justify-content: space-between !important;
+
+
+}
 
 hr {
     border-color: var(--text-color);
@@ -1230,6 +1236,9 @@ hr {
 
 .shake {
   animation: shake 0.5s;
+}
+.hidden {
+    display: none!important;
 }
 /*+++++++++++++++++++++++++++++++++media */
 
@@ -1271,8 +1280,8 @@ hr {
         align-items: flex-start;
         justify-content: flex-start;
         height: 100vh;
+        background: #030338;
 
-        background: #e1e1e1;
         box-shadow: 4px 40px 60px rgba(0, 0, 0, 0.2);
         padding: 24px;
 
@@ -1289,10 +1298,11 @@ hr {
 
     #nav-toggle, #nav-close {
         font-size: 1.8rem;
+        color: #ffffff;
     }
 
     #nav-toggle:hover, #nav-close:hover {
-        color: black;
+        color:var(--text-color);
     }
 
     #nav-menu.active {

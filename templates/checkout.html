@@ -8,29 +8,43 @@
         <div class="checkout-container">
             <div class="checkout-shipping">
                 <a href="{% url "cart" %}" class="return">Return to cart</a>
-                <div class="checkout-contact">
-                    <h6 class="checkout-title">Contact Information</h6>
-                    <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>
+                <form action="" id="shipping-form">
+                    <div class="checkout-contact">
+                        <h6 class="checkout-title">Contact Information</h6>
+                        <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>
 
-                    <input type="text" class="checkout-input" placeholder="Email Address">
-                </div>
-                <div class="checkout-shipping-add">
-                    <h6 class="checkout-title">Shipping Address</h6>
-                    <span class="checkout-subtitle">Fill the following fileds according to where the order to be delivered.</span>
-
-                    <input type="text" class="checkout-input" placeholder="Address">
-                    <input type="text" class="checkout-input" placeholder="State">
-                    <div class="checkout-address-container">
-                        <input type="text" class="checkout-input input-1" placeholder="city">
-                        <input type="text" class="checkout-input input-1" placeholder="zipcode">
+                        <input name="name" type="text" class="checkout-input" placeholder="Full Name">
+                        <input name="email" type="text" class="checkout-input" placeholder="Email Address">
+                        <input name="phone" type="text" class="checkout-input" placeholder="phone Number">
                     </div>
-                    <input type="text" class="checkout-input" placeholder="phone Number">
-                </div>
-                <div class="shopping-button">
+                    <div class="checkout-shipping-add">
+                        <h6 class="checkout-title">Shipping Address</h6>
+                        <span class="checkout-subtitle">Fill the following fileds according to where the order to be delivered.</span>
 
-                    <a href="" class="button-3">Continue to shipping</a>
-                </div>
 
+                        <div class="checkout-address-container">
+                            <input name="address" type="text" class="checkout-input" placeholder="Address">
+                            <input name="state" type="text" class="checkout-input" placeholder="State">
+                        </div>
+                        <div class="checkout-address-container">
+                            <input name="city" type="text" class="checkout-input input-1" placeholder="city">
+                            <input name="zipcode" type="text" class="checkout-input input-1" placeholder="zipcode">
+                        </div>
+
+                    </div>
+
+                    <div class="shopping-button">
+                        <button id="form-submit" type="submit"  class="button-3">Continue to shipping</button>
+                    </div>
+                    <div class="checkout-contact hidden" id="payment-info">
+                        <h6 class="checkout-title payment-box">Payments Information</h6>
+{#                        <span class="checkout-subtitle">Enter valid email which we can use to contact you.</span>#}
+
+                        <button id="make-payment" type="submit"  class="button-3">Make Payment</button>
+
+
+                    </div>
+                </form>
 
             </div>
             <div class="checkout-Total">
@@ -57,7 +71,7 @@
                     <p class="checkout-subtotal">LKR 0.00</p>
                 </div>
                 <hr/>
-            <div class="checkout-total-box">
+                <div class="checkout-total-box">
                     <p class="checkout-subtotal">Total</p>
                     <p class="checkout-subtotal">LKR {{ order.get_cart_total }}</p>
                 </div>
@@ -67,7 +81,50 @@
         </div>
     </section>
 
+    <script type="text/javascript">
+        const form = document.getElementById("shipping-form");
+        const inputs = document.querySelectorAll(".checkout-input");
+        const total = "{{ order.get_cart_total|floatformat:2 }}"
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+            {#console.log("form submitted")#}
+            document.getElementById("form-submit").classList.add("hidden")
+            document.getElementById("payment-info").classList.remove("hidden")
+            inputs.forEach(input => {
+                input.disabled = true;
+            })
+
+        });
+
+        function submitFormData() {
+            const contactData = {
+                "name":null,
+                "email":null,
+                "phone":null,
+                "total":total,
+
+            }
+            const shippingData = {
+                "Address":null,
+                "State":null,
+                "city":null,
+                "zipcode":total,
+
+            }
+
+            console.log("paid")
+        }
+
+        const makePayment = document.getElementById("make-payment");
+        makePayment.addEventListener("click", function(e) {
+            submitFormData()
+
+
+        })
+
+    </script>
+
 {% endblock content %}
-<script src="../static/js/script.js"></script>
 
 
